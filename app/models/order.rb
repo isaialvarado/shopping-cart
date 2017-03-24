@@ -47,7 +47,7 @@ class Order < ActiveRecord::Base
 
   def calculate_subtotal
     subtotal = 0
-    items.each { |item| subtotal += (item.product.price * item.quantity) }
+    items.each { |item| subtotal += (item.unit_price * item.quantity) }
     subtotal
   end
 
