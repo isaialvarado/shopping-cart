@@ -6,6 +6,7 @@ Simple Rails shopping cart system assuming one user.
 
 1. In main directory, run bundle install.
 2. Start postgresql server.
+3. Setup database.
 3. In terminal, start local server with rails s command.
 4. Test API.
 
