@@ -9,7 +9,7 @@ class Api::OrderItemsController < ApplicationController
       render json: "Product already in shopping cart", status: 422
     else
       @item = OrderItem.new(shopping_cart_params)
-      @item.shopping_cart_id = shopping_cart.id
+      @item.order_id = shopping_cart.id
 
       if @item.valid?
         @item.save

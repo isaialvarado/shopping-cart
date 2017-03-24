@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :shopping_cart
 
   def shopping_cart
-    @cart ||=
+    @shopping_cart ||=
       (Order.find_by_status("pending") || Order.shopping_cart!)
   end
 end

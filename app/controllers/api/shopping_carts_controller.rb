@@ -1,8 +1,11 @@
 class Api::ShoppingCartsController < ApplicationController
   def show
+    @cart = shopping_cart
   end
 
   def update
+    @cart = shopping_cart
+
     if shopping_cart_params[:status] == "complete"
       message = Order.process_order(@cart)
       render json: message
@@ -19,6 +22,7 @@ class Api::ShoppingCartsController < ApplicationController
   end
 
   def destroy
+    @cart = shopping_cart
     @cart.remove_items!
     @cart.update_totals!
     render :show
