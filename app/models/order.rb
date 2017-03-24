@@ -20,10 +20,13 @@ class Order < ActiveRecord::Base
 
   def self.process_order(shopping_cart)
     Order.transaction do
+      shopping_cart.update_totals!
       shopping_cart.items.each do |item|
         product = item.product
+        item.unit_price = product.price
         product.available_inventory -= item.quantity
         product.save!
+        item.save!
       end
 
       shopping_cart.status = "complete"
@@ -47,7 +50,7 @@ class Order < ActiveRecord::Base
 
   def calculate_subtotal
     subtotal = 0
-    items.each { |item| subtotal += (item.unit_price * item.quantity) }
+    items.each { |item| subtotal += (item.product.price * item.quantity) }
     subtotal
   end
 

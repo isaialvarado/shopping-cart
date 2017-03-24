@@ -10,6 +10,7 @@ class Api::OrderItemsController < ApplicationController
     else
       @item = OrderItem.new(shopping_cart_params)
       @item.order_id = shopping_cart.id
+      @item.unit_price = product.price
 
       if @item.valid?
         @item.save
