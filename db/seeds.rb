@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Product.destroy_all
-ShoppingCart.destroy_all
-ShoppingCartItem.destroy_all
+Order.destroy_all
+OrderItem.destroy_all
 
 ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)

@@ -21,3 +21,9 @@ curl -X PATCH -H "Content-Type: application/json" -d '{"shopping_cart": {"status
 
 Empty Shopping Cart
 curl -X DELETE http://localhost:3000/api/shopping_cart/
+
+ORDERS Index
+curl http://localhost:3000/api/orders
+
+ORDERS Show
+curl http://localhost:3000/api/orders/1
